@@ -6,5 +6,6 @@ provider "aws" {
 resource "aws_ssm_parameter" "drone_check" {  
   name  = "/tkh/pipeline/status"  
   type  = "String"  
-  value = "Deployment Drone Successful via OIDC"  
+  value = "Deployment Drone Successful via OIDC"
+  overwrite = true  
 }  
