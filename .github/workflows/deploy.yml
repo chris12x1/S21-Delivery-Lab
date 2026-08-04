@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+      - name: Debug OIDC Token Claim
+        run: |
+          ACTIONS_ID_TOKEN=$(curl -s -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | jq -r '.value')
+          echo "EXACT_SUB_CLAIM=$(node -e "console.log(JSON.parse(Buffer.from('$ACTIONS_ID_TOKEN'.split('.')[1], 'base64').toString()).sub)")"
       - name: Configure AWS Credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v3
         with:
