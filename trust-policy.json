@@ -4,12 +4,12 @@
         {  
             "Effect": "Allow",  
             "Principal": {  
-                "Federated": "arn:aws:iam::YOUR_AWS_ACCOUNT_ID:oidc-provider/token.actions.githubusercontent.com"  
+                "Federated": "arn:aws:iam::226778502907:oidc-provider/token.actions.githubusercontent.com"  
             },  
             "Action": "sts:AssumeRoleWithWebIdentity",  
             "Condition": {  
                 "StringLike": {  
-                    "token.actions.githubusercontent.com:sub": "repo:*:*"  
+                    "token.actions.githubusercontent.com:sub": "repo:chris12x1/S21-Delivery-Lab:ref:refs/heads/main"  
                 }  
             }  
         }  
